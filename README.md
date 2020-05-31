@@ -53,3 +53,10 @@ KEY_NAME=<name>
 POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
 kubectl exec -it ${POD_NAME} -- /etc/openvpn/setup/revokeClientCert.sh ${KEY_NAME}
 ```
+---
+
+```bash
+POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
+kubectl exec -it ${POD_NAME} -- openssl crl -in /etc/openvpn/certs/pki/crl.pem -text -noout
+```
+
