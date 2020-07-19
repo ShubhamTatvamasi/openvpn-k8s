@@ -1,9 +1,13 @@
 apiVersion: v1
-appVersion: 1.1.0
 description: A Helm chart to install an openvpn server inside a kubernetes cluster.  Certificate
   generation is also part of the deployment, and this chart will generate client keys
   as needed.
-home: https://openvpn.net/index.php/open-source.html
+name: openvpn
+version: 4.2.3
+appVersion: 1.1.0
+maintainers:
+- name: jasongwartz
+- name: dippynark
 icon: https://forums.openvpn.net/styles/openvpn/theme/images/ovpnlogo.png
 keywords:
 - openvpn
@@ -13,12 +17,8 @@ keywords:
 - service
 - connectivity
 - encryption
-maintainers:
-- name: jasongwartz
-- name: dippynark
-name: openvpn
+home: https://openvpn.net/index.php/open-source.html
 sources:
 - https://github.com/jfelten/openvpn-docker
 - https://github.com/kubernetes/charts/tree/master/stable/openvpn
 - https://github.com/jfelten/helm-charts
-version: 4.2.2

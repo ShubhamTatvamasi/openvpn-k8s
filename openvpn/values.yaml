@@ -13,8 +13,8 @@ updateStrategy: {}
 imagePullSecretName:
 
 image:
-  repository: jfelten/openvpn-docker
-  tag: 1.1.0
+  repository: shubhamtatvamasi/openvpn-k8s
+  tag: latest
   pullPolicy: IfNotPresent
 service:
   type: NodePort
@@ -69,7 +69,7 @@ persistence:
   ##
   storageClass: manual
   accessMode: ReadWriteOnce
-  size: 2M
+  size: 10M
 openvpn:
   # Network allocated for openvpn clients (default: 10.240.0.0).
   OVPN_NETWORK: 10.240.0.0

@@ -22,7 +22,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 2M
+    storage: 10M
   hostPath:
     path: "/usr/pv/openvpn"
 EOF
@@ -30,6 +30,10 @@ EOF
 
 deploy openvpn
 ```bash
+helm install openvpn ./openvpn
+
+helm upgrade -i openvpn ./openvpn
+
 helm upgrade -i openvpn stable/openvpn -f openvpn/values.yaml
 ```
 ---
