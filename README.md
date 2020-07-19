@@ -1,5 +1,12 @@
 # openvpn-k8s
 
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/shubhamtatvamasi/openvpn-k8s)](https://hub.docker.com/r/shubhamtatvamasi/openvpn-k8s)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/shubhamtatvamasi/openvpn-k8s?sort=semver)](https://hub.docker.com/r/shubhamtatvamasi/openvpn-k8s)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/shubhamtatvamasi/openvpn-k8s/latest)](https://hub.docker.com/r/shubhamtatvamasi/openvpn-k8s)
+[![Docker Pulls](https://img.shields.io/docker/pulls/shubhamtatvamasi/openvpn-k8s)](https://hub.docker.com/r/shubhamtatvamasi/openvpn-k8s)
+[![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/shubhamtatvamasi/openvpn-k8s/latest)](https://hub.docker.com/r/shubhamtatvamasi/openvpn-k8s)
+[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/shubhamtatvamasi/openvpn-k8s)](https://hub.docker.com/r/shubhamtatvamasi/openvpn-k8s)
+
 search openvpn
 ```bash
 helm search repo stable/openvpn
