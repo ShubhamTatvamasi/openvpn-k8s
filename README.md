@@ -72,8 +72,6 @@ deploy openvpn
 ```bash
 helm upgrade -i --set service.type=LoadBalancer openvpn ./openvpn
 ```
-helm install --set name=prod myredis ./redis
-
 
 Create new key for EKS
 ```bash
