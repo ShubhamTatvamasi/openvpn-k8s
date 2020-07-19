@@ -66,6 +66,27 @@ kubectl exec -it ${POD_NAME} -- /etc/openvpn/setup/revokeClientCert.sh ${KEY_NAM
 ```
 ---
 
+### Deploy on EKS
+
+deploy openvpn
+```bash
+helm upgrade -i --set service.type=LoadBalancer openvpn ./openvpn
+```
+helm install --set name=prod myredis ./redis
+
+
+Create new key for EKS
+```bash
+KEY_NAME=<name>
+
+POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
+IP=$(kubectl get svc openvpn -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+kubectl exec ${POD_NAME} -- /etc/openvpn/setup/newClientCert.sh ${KEY_NAME} ${IP}
+kubectl exec ${POD_NAME} -- cat "/etc/openvpn/certs/pki/${KEY_NAME}.ovpn" > ${KEY_NAME}.ovpn
+```
+
+---
+
 ```bash
 POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
 kubectl exec -it ${POD_NAME} -- openssl crl -in /etc/openvpn/certs/pki/crl.pem -text -noout
