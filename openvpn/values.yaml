@@ -98,7 +98,7 @@ openvpn:
   # Redirect all client traffic through VPN
   redirectGateway: true
   # Use/generate certificate revocation list
-  useCrl: false
+  useCrl: true
   # Use/generate a ta.key (https://openvpn.net/community-resources/hardening-openvpn-security/)
   taKey: false
   # Override default cipher
