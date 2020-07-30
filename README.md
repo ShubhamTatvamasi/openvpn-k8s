@@ -66,6 +66,29 @@ kubectl exec -it ${POD_NAME} -- /etc/openvpn/setup/revokeClientCert.sh ${KEY_NAM
 ```
 ---
 
+### Fresh Helm Deployment
+
+create namespace 
+```bash
+kubectl create namespace openvpn
+```
+
+Update the repo
+```bash
+helm repo update
+```
+
+Install openvpn
+```bash
+helm install openvpn stable/openvpn -n openvpn \
+  --set image.repository=shubhamtatvamasi/openvpn-k8s \
+  --set image.tag=latest \
+  --set service.type=NodePort \
+  --set persistence.enabled=false \
+  --set openvpn.useCrl=true
+```
+---
+
 ### Deploy on EKS
 
 deploy openvpn
