@@ -45,10 +45,25 @@ helm upgrade -i openvpn stable/openvpn -f openvpn/values.yaml
 ```
 ---
 
-create new key
+switch namespace
 ```bash
-# Update the name
-KEY_NAME=<name>
+kubens openvpn
+```
+
+create key using domain name
+```bash
+# Update the key name
+KEY_NAME=shubham
+DOMAIN_NAME=k8s.shubhamtatvamasi.com
+
+POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
+kubectl exec ${POD_NAME} -- /etc/openvpn/setup/newClientCert.sh ${KEY_NAME} ${DOMAIN_NAME}
+kubectl exec ${POD_NAME} -- cat "/etc/openvpn/certs/pki/${KEY_NAME}.ovpn" > ${KEY_NAME}.ovpn
+```
+
+create key using IP
+```bash
+KEY_NAME=shubham
 
 POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
 IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="ExternalIP")].address}')
