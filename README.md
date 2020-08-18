@@ -74,7 +74,7 @@ kubectl exec ${POD_NAME} -- cat "/etc/openvpn/certs/pki/${KEY_NAME}.ovpn" > ${KE
 revoke the key
 ```bash
 # Update the name
-KEY_NAME=<name>
+KEY_NAME=shubham
 
 POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
 kubectl exec -it ${POD_NAME} -- /etc/openvpn/setup/revokeClientCert.sh ${KEY_NAME}
@@ -113,7 +113,8 @@ helm upgrade -i --set service.type=LoadBalancer openvpn ./openvpn
 
 Create new key for EKS
 ```bash
-KEY_NAME=<name>
+# Update the key name
+KEY_NAME=shubham
 
 POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
 IP=$(kubectl get svc openvpn -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
