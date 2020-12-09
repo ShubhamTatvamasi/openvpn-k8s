@@ -127,3 +127,11 @@ kubectl exec ${POD_NAME} -- cat "/etc/openvpn/certs/pki/${KEY_NAME}.ovpn" > ${KE
 POD_NAME=$(kubectl get pods -l app=openvpn -o jsonpath='{.items[0].metadata.name}')
 kubectl exec -it ${POD_NAME} -- openssl crl -in /etc/openvpn/certs/pki/crl.pem -text -noout
 ```
+
+### Linux Connection
+
+Connect on Linux (ubuntu)
+```bash
+sudo openvpn --config shubham.ovpn
+```
+
