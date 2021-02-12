@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.12
 
 RUN apk add --no-cache openssl easy-rsa openvpn iptables bash
 
