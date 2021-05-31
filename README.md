@@ -95,7 +95,9 @@ helm repo update
 
 Install openvpn
 ```bash
-helm install openvpn stable/openvpn -n openvpn \
+helm install openvpn stable/openvpn \
+  --create-namespace \
+  --namespace openvpn \
   --set image.repository=shubhamtatvamasi/openvpn-k8s \
   --set image.tag=latest \
   --set service.type=NodePort \
