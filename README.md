@@ -7,6 +7,20 @@
 [![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/shubhamtatvamasi/openvpn-k8s/latest)](https://hub.docker.com/r/shubhamtatvamasi/openvpn-k8s)
 [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/shubhamtatvamasi/openvpn-k8s)](https://hub.docker.com/r/shubhamtatvamasi/openvpn-k8s)
 
+Add helm repo:
+```bash
+helm repo add stable https://charts.helm.sh/stable
+```
+
+Install OpenVPN:
+```bash
+helm upgrade -i openvpn stable/openvpn \
+  --create-namespace \
+  --namespace openvpn
+```
+
+### OLD
+
 search openvpn
 ```bash
 helm search repo stable/openvpn
