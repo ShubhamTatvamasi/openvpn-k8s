@@ -16,7 +16,9 @@ Install OpenVPN:
 ```bash
 helm upgrade -i openvpn stable/openvpn \
   --create-namespace \
-  --namespace openvpn
+  --namespace openvpn \
+  --set image.repository=shubhamtatvamasi/openvpn-k8s \
+  --set image.tag=latest
 ```
 
 ### OLD
