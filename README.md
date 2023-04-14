@@ -19,7 +19,8 @@ helm upgrade -i openvpn stable/openvpn \
   --namespace openvpn \
   --set image.repository=shubhamtatvamasi/openvpn-k8s \
   --set image.tag=latest \
-  --set persistence.size=10M
+  --set persistence.size=10M \
+  --set openvpn.useCrl=true
 ```
 
 ### OLD
